@@ -6,13 +6,15 @@ import gradio as gr
 # 输入name字符串，输出Hello {name}!字符串
 def greet(name):
     return "Hello " + name + "!"
-
-demo = gr.Interface(
-    fn=greet,
-    inputs=gr.Textbox(lines=2, placeholder="Name Here..."),
-    outputs="text",
-    allow_flagging="never",
-)
+def image_mod(image):
+    return image.rotate(45)
+# demo = gr.Interface(
+#     fn=greet,
+#     inputs=gr.Textbox(lines=2, placeholder="Name Here..."),
+#     outputs="text",
+#     allow_flagging="never",
+# )
+demo=gr.Interface(image_mod,gr.Image(type='pil'),"image",allow_flagging="never")
 # import torch
 # import requests
 # from torchvision import transforms
