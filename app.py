@@ -13,14 +13,14 @@ demo = gr.Interface(
     outputs="text",
     allow_flagging="never",
 )
-import torch
-import requests
-from torchvision import transforms
-
-torch.hub._validate_not_a_forked_repo = lambda a, b, c: True
-model = torch.hub.load('pytorch/vision:v0.6.0', 'resnet18', pretrained=True).eval()
-response = requests.get("https://git.io/JJkYN")
-labels = response.text.split("\n")
+# import torch
+# import requests
+# from torchvision import transforms
+#
+# torch.hub._validate_not_a_forked_repo = lambda a, b, c: True
+# model = torch.hub.load('pytorch/vision:v0.6.0', 'resnet18', pretrained=True).eval()
+# response = requests.get("https://git.io/JJkYN")
+# labels = response.text.split("\n")
 
 
 # def predict(inp):
