@@ -39,3 +39,4 @@ labels = response.text.split("\n")
 
 if __name__ == "__main__":
     demo.launch()
+    print("h")
