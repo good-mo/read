@@ -23,19 +23,19 @@ response = requests.get("https://git.io/JJkYN")
 labels = response.text.split("\n")
 
 
-def predict(inp):
-    inp = transforms.ToTensor()(inp).unsqueeze(0)
-    with torch.no_grad():
-        prediction = torch.nn.functional.softmax(model(inp)[0], dim=0)
-        confidences = {labels[i]: float(prediction[i]) for i in range(1000)}
-    return confidences
-
-
-demo1 = gr.Interface(fn=predict,
-                    inputs=gr.inputs.Image(type="pil"),
-                    outputs=gr.outputs.Label(num_top_classes=3),
-                    examples=[["cheetah.jpg"]],
-                    )
+# def predict(inp):
+#     inp = transforms.ToTensor()(inp).unsqueeze(0)
+#     with torch.no_grad():
+#         prediction = torch.nn.functional.softmax(model(inp)[0], dim=0)
+#         confidences = {labels[i]: float(prediction[i]) for i in range(1000)}
+#     return confidences
+#
+#
+# demo1 = gr.Interface(fn=predict,
+#                     inputs=gr.inputs.Image(type="pil"),
+#                     outputs=gr.outputs.Label(num_top_classes=3),
+#                     examples=[["cheetah.jpg"]],
+#                     )
 
 if __name__ == "__main__":
-    demo1.launch()
+    demo.launch()
